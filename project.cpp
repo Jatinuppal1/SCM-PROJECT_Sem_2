@@ -21,7 +21,8 @@ void Stack::menu()
 	 cout << "\n What do you want to do :" ;
 	 do
 	   {
-	         cout << "\n1. Push";
+	         cout << "\n1. Push" ;
+		 cout << "\n2. Pop" ;
 	         cout << "\n Press 0 to leave." ;
 		 cout << endl <<"\nYour choice - " ;
 		 cin >> k ;
@@ -34,6 +35,9 @@ void Stack::menu()
 				       cout << endl << "\nEnter the value - " ;
 				       cin >> a ;
 				       push( a ) ;
+				    break ;
+			       case 2 :
+				       pop();
 				    break ;
 			       default :
 				    cout << "\nInvalid Input" ;
@@ -61,6 +65,16 @@ void Stack::push( int data )
 	  }
  }
 
+void Stack::pop()
+ {
+	 if( top == -1 )
+		 cout << "\nStack Underflow !" ;
+	 else
+	  {
+		 cout << endl << stack[ top-- ] << " deleted from the stack." ;
+	  }
+ }
+
 int main()
  {
 	int n ;
@@ -79,7 +93,7 @@ int main()
 		           case 1 :
 				   {
 		   	             Stack s1 ;
-		   	             s1.menu() ;
+				     s1.menu() ;
 				   }
                                  break ;
 		           default :
