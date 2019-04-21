@@ -29,7 +29,7 @@ void Stack::menu()
 		 switch( k )
 		       {
 			       case 0 :
-				       cout << "\nOut of Stack" ;
+				       cout << "\nOut of Stack" << endl ;
 				    break ;
 			       case 1 :
 				       cout << endl << "\nEnter the value - " ;
@@ -37,7 +37,10 @@ void Stack::menu()
 				       push( a ) ;
 				    break ;
 			       case 2 :
-				       pop();
+				       pop() ;
+				    break ;
+			       case 3 :
+				       display() ;
 				    break ;
 			       default :
 				    cout << "\nInvalid Input" ;
@@ -73,6 +76,18 @@ void Stack::pop()
 	  {
 		 cout << endl << stack[ top-- ] << " deleted from the stack." ;
 	  }
+ }
+
+void Stack::display()
+ {
+	 if( top == -1 )
+		 cout << "\nStack is empty.";
+	 else
+	 {
+	         cout << "\nElements of Stack ( from bottom to top ) are :" << endl;
+	         for( int i=0 ; i<=top ; i++ )
+		         cout << "\t" << stack[i] ;
+	 }
  }
 
 int main()
