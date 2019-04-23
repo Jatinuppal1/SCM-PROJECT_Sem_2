@@ -239,3 +239,19 @@ void List::delet()
         break;
     }
 }
+
+void List::display()
+{
+    Node *temp=first;
+    if(temp==NULL)
+    {
+        cout<<"\nList is Empty";
+    }
+    while(temp!=NULL)
+    {
+        cout<<temp->info;
+        cout<<"-->";
+        temp=temp->next;
+    }
+    cout<<"NULL";
+}
