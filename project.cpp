@@ -255,3 +255,33 @@ void List::display()
     }
     cout<<"NULL";
 }
+
+void List::search()
+{
+    int value,pos=0;
+    bool flag=false;
+    if(first==NULL)
+    {
+        cout<<"List is Empty";
+        return;
+    }
+    cout<<"Enter the Value to be Searched:";
+    cin>>value;
+    Node *temp;
+    temp=first;
+    while(temp!=NULL)
+    {
+        pos++;
+        if(temp->info==value)
+        {
+            flag=true;
+            cout<<"Element"<<value<<"is Found at "<<pos<<" Position";
+            return;
+        }
+        temp=temp->next;
+    }
+    if(!flag)
+    {
+        cout<<"Element "<<value<<" not Found in the List";
+    }
+}
