@@ -89,6 +89,27 @@ void Stack::display()
 		         cout << "\t" << stack[i] ;
 	 }
  }
+/**********************Doubly linklist--Ingit**************************************/
+/*
+ Class Declaration
+ */
+class double_llist
+{
+    public:
+        void create_list(int value);
+        void add_begin(int value);
+        void add_after(int value, int position);
+        void delete_element(int value);
+        void search_element(int value);
+        void display_dlist();
+        void count();
+        void reverse();
+        double_llist()
+        {
+            start = NULL;
+        }
+};
+
 
 int main()
  {
