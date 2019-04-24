@@ -290,6 +290,40 @@ void circular_llist::update()
     cout<<"Node Updated"<<endl;
 }
 
+void circular_llist::sort()
+{
+    struct node *s, *ptr;
+    int temp;
+    if (last == NULL)
+    {
+        cout<<"List is empty, nothing to sort"<<endl;
+        return;
+    }
+    s = last->next;
+    while (s != last)
+    {
+        ptr = s->next;
+        while (ptr != last->next)
+        {
+            if (ptr != last->next)
+            {
+                if (s->info > ptr->info)
+                {
+                    temp = s->info;
+                    s->info = ptr->info;
+                    ptr->info = temp;
+                }
+            }
+            else
+            {
+                break;
+            }
+            ptr = ptr->next;
+        }
+        s = s->next;
+    }
+}
+
 int main()
  {
 	int n ;
