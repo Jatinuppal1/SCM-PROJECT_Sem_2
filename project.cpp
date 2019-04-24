@@ -244,6 +244,25 @@ void circular_llist::search_element(int value)
     cout<<"Element "<<value<<" not found in the list"<<endl;
 }
 
+void circular_llist::display_list()
+{
+    struct node *s;
+    if (last == NULL)
+    {
+        cout<<"List is empty, nothing to display"<<endl;
+        return;
+    }
+    s = last->next;
+    cout<<"Circular Link List: "<<endl;
+    while (s != last)
+    {
+        cout<<s->info<<"->";
+        s = s->next;
+    }
+    cout<<s->info<<endl;
+}
+
+
 int main()
  {
 	int n ;
