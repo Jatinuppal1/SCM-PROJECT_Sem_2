@@ -262,6 +262,33 @@ void circular_llist::display_list()
     cout<<s->info<<endl;
 }
 
+void circular_llist::update()
+{
+    int value, pos, i;
+    if (last == NULL)
+    {
+        cout<<"List is empty, nothing to update"<<endl;
+        return;
+    }
+    cout<<"Enter the node position to be updated: ";
+    cin>>pos;
+    cout<<"Enter the new value: ";
+    cin>>value;
+    struct node *s;
+    s = last->next;
+    for (i = 0;i < pos - 1;i++)
+    {
+        if (s == last)
+        {
+            cout<<"There are less than "<<pos<<" elements.";
+            cout<<endl;
+            return;
+        }
+        s = s->next;
+    }
+    s->info = value;
+    cout<<"Node Updated"<<endl;
+}
 
 int main()
  {
