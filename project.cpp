@@ -173,6 +173,50 @@ void circular_llist::add_after(int value, int pos)
     }
 }
 
+void circular_llist::delete_element(int value)
+{
+    struct node *temp, *s;
+    s = last->next;
+      /* If List has only one element*/
+    if (last->next == last && last->info == value)  
+    {
+        temp = last;
+        last = NULL;
+        free(temp);
+        return;
+    }
+    if (s->info == value)  /*First Element Deletion*/
+    {
+        temp = s;
+        last->next = s->next;
+        free(temp);
+        return;
+    }
+    while (s->next != last)
+    {
+        /*Deletion of Element in between*/
+        if (s->next->info == value)    
+        {
+            temp = s->next;
+            s->next = temp->next;
+            free(temp);
+            cout<<"Element "<<value;
+            cout<<" deleted from the list"<<endl;
+            return;
+        }
+        s = s->next;
+    }
+    /*Deletion of last element*/
+    if (s->next->info == value)    
+    {
+        temp = s->next;
+        s->next = last->next;
+        free(temp);		
+        last = s;
+        return;
+    }
+    cout<<"Element "<<value<<" not found in the list"<<endl;
+}
 
 int main()
  {
