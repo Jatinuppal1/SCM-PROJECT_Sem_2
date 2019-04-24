@@ -143,6 +143,37 @@ void circular_llist::create_node(int value)
     last->next = temp;
 }
 
+void circular_llist::add_after(int value, int pos)
+{
+    if (last == NULL)
+    {
+        cout<<"First Create the list."<<endl;
+        return;
+    }
+    struct node *temp, *s;
+    s = last->next;
+    for (int i = 0;i < pos-1;i++)
+    {
+        s = s->next;
+        if (s == last->next)
+        {
+            cout<<"There are less than ";
+            cout<<pos<<" in the list"<<endl;
+            return;
+        }
+    }
+    temp = new(struct node);
+    temp->next = s->next;
+    temp->info = value;
+    s->next = temp;
+    /*Element inserted at the end*/
+    if (s == last)
+    {
+        last=temp;
+    }
+}
+
+
 int main()
  {
 	int n ;
