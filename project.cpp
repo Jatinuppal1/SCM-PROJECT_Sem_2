@@ -25,6 +25,7 @@ void Stack::stmenu()
 	   {
 	         cout << "\n1. Push" ;
 		 cout << "\n2. Pop" ;
+		 cout << "\n3. Display" ;
 	         cout << "\n Press 0 to leave." ;
 		 cout << endl <<"\nYour choice - " ;
 		 cin >> k ;
@@ -142,7 +143,7 @@ class double_llist
         void add_after(int value, int position);
         void delete_element(int value);
         void search_element(int value);
-        void display_list();
+        void display_dlist();
         void count();
         void reverse();
 	void dmenu();
@@ -168,6 +169,7 @@ void circular_llist::create_node(int value)
         clast->next = temp;
         clast = temp;
     }
+}
 
 void circular_llist::add_begin(int value)
 {
@@ -252,7 +254,7 @@ void circular_llist::add_after(int value, int pos)
     temp->info = value;
     s->next = temp;
     /*Elements inserted at the end*/
-    if (s == last)
+    if (s == clast)
     {
 	    clast = temp;
     }
@@ -307,7 +309,7 @@ void circular_llist::delete_element(int value)
       /* If List has only one element*/
     if (clast->next == clast && clast->info == value)  
     {
-        temp = last;
+        temp = clast;
         clast = NULL;
         free(temp);
         return;
@@ -337,7 +339,7 @@ void circular_llist::delete_element(int value)
     if (s->next->info == value)    
     {
         temp = s->next;
-        s->next = last->next;
+        s->next = clast->next;
         free(temp);		
         last = s;
         return;
@@ -958,7 +960,7 @@ void List::search()
     }
 }
 
-void smenu()
+void List::smenu()
 {
     
     int ch;
